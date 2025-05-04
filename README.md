@@ -1,0 +1,2 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/github/Himura-777/ahj-dom?svg=true)](https://ci.appveyor.com/project/Himura-777/ahj-dom)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://Himura-777.github.io/ahj-dom/)
