@@ -16,6 +16,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@eslint/js": "^9.26.0",
+    "@jest/globals": "^29.7.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.11.0",
     "eslint": "^9.26.0",

@@ -31,5 +31,16 @@ export default [
 			'dist/**',
 			'node_modules/**'
 		]
+	},
+	{
+		files: ["**/*.test.js"],
+		languageOptions: {
+			globals: {
+				...globals.jest, // Добавляет Jest-глобалы
+			},
+		},
+		rules: {
+			"no-console": "off" // Разрешить console в тестах
+		}
 	}
 ];
