@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f42c6e49-6687-48ab-87c3-cb6b1f03d094" name="Changes" comment="" />
+    <list default="true" id="f42c6e49-6687-48ab-87c3-cb6b1f03d094" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/web.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
