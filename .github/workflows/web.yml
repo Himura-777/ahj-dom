@@ -22,9 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
-          cache: 'npm'  # Изменили на npm
-      - run: npm ci     # Используем npm вместо yarn
-      - run: npm run lint
+          cache: 'yarn'  # Используем yarn вместо npm
+      - run: yarn install --frozen-lockfile  # Заменяем npm ci
+      - run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -34,9 +34,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
-          cache: 'npm'  # Изменили на npm
-      - run: npm ci
-      - run: npm test
+          cache: 'yarn'  # Используем yarn вместо npm
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
 
   build:
     needs: [eslint, test]
@@ -52,9 +52,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
-          cache: 'npm'  # Изменили на npm
-      - run: npm ci
-      - run: npm run build
+          cache: 'yarn'  # Используем yarn вместо npm
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
