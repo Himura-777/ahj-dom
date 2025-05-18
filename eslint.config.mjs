@@ -4,43 +4,49 @@ import globals from "globals";
 export default [
 	js.configs.recommended,
 	{
+		files: ["**/*.js"],
 		languageOptions: {
 			globals: {
 				...globals.browser,
 				...globals.node
 			},
 			parserOptions: {
-				ecmaVersion: 2022,
-				sourceType: 'module'
+				ecmaVersion: "latest",
+				sourceType: "module"
 			}
 		},
 		rules: {
-			'no-plusplus': 'off',
-			'no-param-reassign': 'off',
-			'no-console': 'warn',
-			'no-unused-vars': 'warn',
-			'no-undef': 'error',
-			'semi': ['error', 'always'],
-			'quotes': ['error', 'single'],
-			'indent': ['error', 2],
-			'comma-dangle': ['error', 'never']
+			"indent": ["error", 2, { "SwitchCase": 1 }],
+			"linebreak-style": ["error", "unix"],
+			"quotes": ["error", "single", { "avoidEscape": true }],
+			"semi": ["error", "always"],
+			"no-console": "warn",
+			"no-unused-vars": "warn",
+			"no-undef": "error",
+			"comma-dangle": ["error", "never"],
+			"no-trailing-spaces": "error",
+			"eol-last": ["error", "always"]
 		}
-	},
-	{
-		ignores: [
-			'dist/**',
-			'node_modules/**'
-		]
 	},
 	{
 		files: ["**/*.test.js"],
 		languageOptions: {
 			globals: {
-				...globals.jest, // Добавляет Jest-глобалы
-			},
+				...globals.jest
+			}
 		},
 		rules: {
-			"no-console": "off" // Разрешить console в тестах
+			"no-console": "off",
+			"no-unused-vars": "off"
 		}
+	},
+	{
+		ignores: [
+			"dist/**",
+			"node_modules/**",
+			"coverage/**",
+			".github/**",
+			"**/*.config.js"
+		]
 	}
 ];
