@@ -31,5 +31,10 @@
     "webpack": "^5.99.7",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(png|jpg|jpeg|gif)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   }
 }
