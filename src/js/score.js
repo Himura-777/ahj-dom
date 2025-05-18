@@ -13,6 +13,7 @@ export default class Score {
   }
 
   updateMisses(misses) {
+    this.misses = misses;
     this.update();
   }
 

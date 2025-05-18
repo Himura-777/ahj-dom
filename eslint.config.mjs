@@ -16,16 +16,12 @@ export default [
 			}
 		},
 		rules: {
-			"indent": ["error", 2, { "SwitchCase": 1 }],
+			"indent": ["error", 2],
 			"linebreak-style": ["error", "unix"],
-			"quotes": ["error", "single", { "avoidEscape": true }],
+			"quotes": ["error", "single"],
 			"semi": ["error", "always"],
-			"no-console": "warn",
-			"no-unused-vars": "warn",
-			"no-undef": "error",
-			"comma-dangle": ["error", "never"],
-			"no-trailing-spaces": "error",
-			"eol-last": ["error", "always"]
+			"eol-last": ["error", "always"],
+			"no-unused-vars": "warn"
 		}
 	},
 	{
@@ -36,17 +32,7 @@ export default [
 			}
 		},
 		rules: {
-			"no-console": "off",
-			"no-unused-vars": "off"
+			"no-console": "off"
 		}
-	},
-	{
-		ignores: [
-			"dist/**",
-			"node_modules/**",
-			"coverage/**",
-			".github/**",
-			"**/*.config.js"
-		]
 	}
 ];

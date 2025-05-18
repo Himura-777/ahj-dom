@@ -4,7 +4,6 @@ describe('Game', () => {
   let game;
 
   beforeAll(() => {
-    // Создаем минимальный DOM для тестов
     document.body.innerHTML = `
       <div class="game-container">
         <div class="game-board" id="gameBoard"></div>
@@ -14,6 +13,12 @@ describe('Game', () => {
 
   beforeEach(() => {
     game = new Game();
+  });
+
+  afterEach(() => {
+    if (game.gameInterval) {
+      clearInterval(game.gameInterval);
+    }
   });
 
   test('should initialize', () => {
@@ -26,8 +31,5 @@ describe('Game', () => {
   test('should start game', () => {
     game.start();
     expect(game.gameInterval).toBeDefined();
-
-    // Очищаем интервал после теста
-    clearInterval(game.gameInterval);
   });
 });
