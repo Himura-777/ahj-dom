@@ -1,8 +1,8 @@
-// TODO: write code here
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import Game from './game.js';
 
-// for demonstration purpose only
-export default function demo(value) {
-  return `Demo: ${value}`;
-}
+const game = new Game();
+game.start();
+
+export { game };
