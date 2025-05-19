@@ -2,19 +2,22 @@ import goblinImg from '../img/goblin.png';
 
 export default class Goblin {
   constructor() {
-    this.goblinElement = document.createElement('img');
-    this.goblinElement.src = goblinImg;
-    this.goblinElement.className = 'goblin';
-    this.goblinElement.style.display = 'none';
-    document.body.appendChild(this.goblinElement);
+    this.element = document.createElement('img');
+    this.element.src = goblinImg;
+    this.element.className = 'goblin';
+    this.element.style.display = 'none';
+    document.body.append(this.element);
   }
 
   show(position) {
-    position.append(this.goblinElement);
-    this.goblinElement.style.display = 'block';
+    if (this.element.parentNode) {
+      this.element.parentNode.removeChild(this.element);
+    }
+    position.append(this.element);
+    this.element.style.display = 'block';
   }
 
   hide() {
-    this.goblinElement.style.display = 'none';
+    this.element.style.display = 'none';
   }
 }

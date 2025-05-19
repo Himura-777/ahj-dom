@@ -3,42 +3,36 @@ export default class Field {
     this.game = game;
     this.board = document.getElementById('gameBoard');
     this.cells = [];
-    this.createField();
+    this.lastPosition = null;
   }
 
-  clear() {
+  draw() {
     this.board.innerHTML = '';
     this.cells = [];
-    this.createField();
-  }
 
-  createField() {
     for (let i = 0; i < 16; i++) {
       const cell = document.createElement('div');
       cell.className = 'cell';
-      cell.dataset.index = i.toString();
+      cell.dataset.index = i;
+      cell.addEventListener('click', () => this.game.hitGoblin(cell));
       this.cells.push(cell);
-      this.board.appendChild(cell);
+      this.board.append(cell);
     }
   }
 
   getRandomPosition() {
-    if (this.cells.length <= 1) return null;
+    if (this.cells.length === 0) return null;
 
-    let newPosition;
-    do {
-      newPosition = Math.floor(Math.random() * this.cells.length);
-    } while (newPosition === this.lastPosition && this.cells.length > 1);
+    let availableCells = this.cells;
+    if (this.lastPosition) {
+      availableCells = this.cells.filter(cell => cell !== this.lastPosition);
+    }
 
-    this.lastPosition = newPosition;
-    return this.cells[newPosition];
-  }
+    if (availableCells.length === 0) availableCells = this.cells;
 
-  draw() {
-    this.cells.forEach(cell => {
-      cell.addEventListener('click', () => {
-        this.game.hitGoblin(cell);
-      });
-    });
+    const randomIndex = Math.floor(Math.random() * availableCells.length);
+    this.lastPosition = availableCells[randomIndex];
+
+    return this.lastPosition;
   }
 }

@@ -1,33 +1,20 @@
 export default class Score {
   constructor(game) {
     this.game = game;
-    this.points = 0;
-    this.scoreElement = document.createElement('div');
-    this.scoreElement.className = 'score';
-    document.querySelector('.game-container').prepend(this.scoreElement);
-  }
-
-  reset() {
-    this.points = 0;
-    this.update();
-  }
-
-  increase() {
-    this.points++;
-    this.update();
-  }
-
-  updateMisses(misses) {
-    this.misses = misses;
+    this.element = document.createElement('div');
+    this.element.className = 'score';
+    document.querySelector('.game-container').prepend(this.element);
     this.update();
   }
 
   update() {
-    this.scoreElement.textContent =
-			`Score: ${this.points} | Misses: ${this.game.misses}/${this.game.maxMisses}`;
-  }
+    this.element.textContent =
+        `Попадания: ${this.game.points} | Промахи: ${this.game.misses}/5`;
 
-  draw() {
-    this.update();
+    if (this.game.misses >= 5) {
+      this.element.style.color = 'red';
+    } else {
+      this.element.style.color = 'black';
+    }
   }
 }
