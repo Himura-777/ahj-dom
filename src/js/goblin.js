@@ -10,7 +10,7 @@ export default class Goblin {
   }
 
   show(position) {
-    position.appendChild(this.goblinElement);
+    position.append(this.goblinElement);
     this.goblinElement.style.display = 'block';
   }
 

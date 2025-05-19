@@ -6,6 +6,12 @@ export default class Field {
     this.createField();
   }
 
+  clear() {
+    this.board.innerHTML = '';
+    this.cells = [];
+    this.createField();
+  }
+
   createField() {
     for (let i = 0; i < 16; i++) {
       const cell = document.createElement('div');
@@ -17,8 +23,15 @@ export default class Field {
   }
 
   getRandomPosition() {
-    const randomIndex = Math.floor(Math.random() * this.cells.length);
-    return this.cells[randomIndex];
+    if (this.cells.length <= 1) return null;
+
+    let newPosition;
+    do {
+      newPosition = Math.floor(Math.random() * this.cells.length);
+    } while (newPosition === this.lastPosition && this.cells.length > 1);
+
+    this.lastPosition = newPosition;
+    return this.cells[newPosition];
   }
 
   draw() {

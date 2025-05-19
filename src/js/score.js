@@ -7,6 +7,11 @@ export default class Score {
     document.querySelector('.game-container').prepend(this.scoreElement);
   }
 
+  reset() {
+    this.points = 0;
+    this.update();
+  }
+
   increase() {
     this.points++;
     this.update();

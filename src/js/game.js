@@ -11,44 +11,80 @@ export default class Game {
     this.maxMisses = 5;
     this.currentPosition = null;
     this.gameInterval = null;
+    this.currentTimeout = null;
+    this.isGameActive = true;
   }
 
   start() {
+    this.isGameActive = true;
     this.field.draw();
     this.score.draw();
     this.gameInterval = setInterval(() => this.moveGoblin(), 1000);
   }
 
   moveGoblin() {
-    if (this.misses >= this.maxMisses) {
-      this.endGame();
-      return;
-    }
+    if (!this.isGameActive) return;
 
     const newPosition = this.field.getRandomPosition();
-    if (newPosition === this.currentPosition) {
-      this.moveGoblin();
-      return;
+    if (newPosition === null || newPosition === this.currentPosition) return;
+
+    if (this.currentPosition) {
+      this.misses++;
+      this.score.updateMisses(this.misses);
     }
 
     this.currentPosition = newPosition;
-    this.goblin.show(this.currentPosition);
-    this.misses++;
-    this.score.updateMisses(this.misses);
+    this.goblin.show(newPosition);
+
+    this.currentTimeout = setTimeout(() => {
+      if (this.currentPosition && this.isGameActive) {
+        this.misses++;
+        this.score.updateMisses(this.misses);
+        this.goblin.hide();
+        this.currentPosition = null;
+
+        if (this.misses >= this.maxMisses) {
+          this.endGame();
+        }
+      }
+    }, 1000);
   }
 
   hitGoblin(position) {
-    if (position === this.currentPosition && this.currentPosition !== null) {
+    if (!this.isGameActive) return;
+
+    if (this.currentPosition && position === this.currentPosition) {
+      clearTimeout(this.currentTimeout);
       this.goblin.hide();
       this.score.increase();
-      this.misses = Math.max(0, this.misses - 1);
-      this.score.updateMisses(this.misses);
       this.currentPosition = null;
+    } else {
+      this.misses++;
+      this.score.updateMisses(this.misses);
+
+      if (this.misses >= this.maxMisses) {
+        this.endGame();
+      }
     }
   }
 
   endGame() {
+    this.isGameActive = false;
     clearInterval(this.gameInterval);
-    alert(`Game over! Your score: ${this.score.points}`);
+    clearTimeout(this.currentTimeout);
+
+    setTimeout(() => {
+      if (confirm(`Игра окончена! Счет: ${this.score.points}\nНачать заново?`)) {
+        this.restart();
+      }
+    }, 100);
+  }
+
+  restart() {
+    this.field.clear();
+    this.misses = 0;
+    this.score.reset();
+    this.currentPosition = null;
+    this.start();
   }
 }

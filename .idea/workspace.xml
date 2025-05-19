@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f42c6e49-6687-48ab-87c3-cb6b1f03d094" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/field.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/field.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/goblin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/goblin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/score.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/score.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +71,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/js/goblin.js</url>
           <line>2</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
